@@ -23,6 +23,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 nnoremap <C-p> :Files<CR>
