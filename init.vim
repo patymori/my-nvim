@@ -21,9 +21,15 @@ Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
 Plug 'vifm/neovim-vifm'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :Ag<space>
 
 """"""" SuperTab configuration """""""
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
@@ -73,10 +79,19 @@ imap <C-delete> ø
 " Neomake and other build commands (ctrl-b)
 nnoremap <C-b> :w<cr>:Neomake<cr>
 
+" Update NeoVim config
+noremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 
 " Python Plugin
 let g:python_host_prog = '/home/patymori/.pyenv/versions/tools2/bin/python'
 let g:python3_host_prog = '/home/patymori/.pyenv/versions/tools3/bin/python'
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
