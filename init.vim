@@ -25,6 +25,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 nnoremap <C-p> :Files<CR>
@@ -93,4 +94,13 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+"let g:NERDDefaultAlign = 'left'
 
