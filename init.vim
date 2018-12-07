@@ -26,6 +26,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'ambv/black'
 call plug#end()
 
 nnoremap <C-p> :Files<CR>
@@ -84,6 +85,7 @@ noremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
+autocmd BufWritePre *.py execute ':Black'
 
 " Python Plugin
 let g:python_host_prog = '/home/patymori/.pyenv/versions/tools2/bin/python'
