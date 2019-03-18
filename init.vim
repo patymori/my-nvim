@@ -9,7 +9,13 @@ filetype off
 call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'roxma/nvim-completion-manager'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-cssomni'
+Plug 'ncm2/ncm2-tern'
+Plug 'ncm2/ncm2-jedi'
+Plug 'roxma/nvim-yarp'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
@@ -32,6 +38,12 @@ call plug#end()
 nnoremap <C-p> :Files<CR>
 nnoremap <C-f> :Ag<space>
 
+" enable ncm2 for all buffers
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 """"""" SuperTab configuration """""""
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 function! Completefunc(findstart, base)
@@ -45,7 +57,7 @@ endfunction
 
 """"""" General coding stuff """""""
 " Highlight 80th column
-set colorcolumn=80
+set colorcolumn=89
 " Always show status bar
 set laststatus=2
 " Let plugins show effects after 500ms, not 4s
